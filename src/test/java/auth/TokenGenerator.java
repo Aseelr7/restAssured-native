@@ -18,8 +18,8 @@ public class TokenGenerator {
 
         Response response = given()
                         .contentType("application/json")
-                        .body("{ \"username\":  \"" + userName + "\", \"password\": \"" + password + "\" }").
-                        post(EndPoints.ACCOUNT_GENERATE_TOKEN);
+                .body("{ \"userName\": \"" + userName + "\", \"password\": \"" + password + "\" }")
+                .post(EndPoints.ACCOUNT_GENERATE_TOKEN);
 
                 if ( response.statusCode() == 200){
                     return response.jsonPath().getString("token");
